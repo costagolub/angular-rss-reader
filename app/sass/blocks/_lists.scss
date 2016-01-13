@@ -1,0 +1,17 @@
+.lists {}
+.lists__item {
+	input[type="text"] {
+		background: none;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		&:disabled {
+			pointer-events: none;
+		}
+	}
+	&.active {
+		input[type="text"] {
+			color: $white!important;
+		}
+	}
+}

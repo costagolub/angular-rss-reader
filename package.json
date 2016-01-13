@@ -1,0 +1,39 @@
+{
+  "name": "js_rss_reader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [
+    "rss",
+    "javascript",
+    "js",
+    "reader",
+    "feed"
+  ],
+  "author": "Constantine Golub",
+  "license": "MIT",
+  "devDependencies": {
+    "angular": "^1.4.8",
+    "angular-route": "^1.4.8",
+    "angular-sanitize": "^1.4.8",
+    "browser-sync": "^2.11.0",
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0",
+    "ngstorage": "^0.3.10",
+    "run-sequence": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "bower": "^1.7.2"
+  }
+}

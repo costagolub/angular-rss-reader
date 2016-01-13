@@ -1,0 +1,8 @@
+.col-md-7.ng-cloak.feed-post
+	.row
+		.col-xs-12
+			a(ng-href="#/feedList") Return to feed list
+			div(pie-diagram="" pie-data="postData.content" pie-width="600" pie-height="400" pie-title="How many latin letters are encountered through the text")
+		.col-xs-12
+			h2 {{postData.title}}
+			div(ng-bind-html="asHtml")

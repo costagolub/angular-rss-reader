@@ -1,0 +1,41 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title RSS Feed Reader
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  link(rel='stylesheet', href='css/app.css')
+  body(ng-app="rssReaderApp" ng-controller="mainCtrl")
+    header.page-header.text-center.header
+      h1.header__name RSS Feed Reader
+      .progress.loader.ng-cloak(ng-show="loader")
+        .progress-bar.progress-bar-striped.progress-bar-success.active(aria-valuenow="100" style="width: 100%")
+    main.container-fluid
+      .row
+        .col-md-4
+          .input-group.list-group
+            input.form-control(type="text" http-prefix="" ng-model="newFeed" placeholder="Type in the rss's url")
+            span.input-group-btn
+              button.btn.btn-default(type="button" ng-click="addFeed()" ng-disabled="!newFeed.length") Add Feed!
+
+          .alert.alert-danger.ng-cloak.clearfix(ng-show="errorName") {{errorName}}
+
+          .list-group.lists.ng-cloak
+            a.list-group-item.lists__item(ng-href="#/feedList" ng-repeat="feed in $storage.feedList" ng-click="choosedFeed(feed)" ng-class="feed == activeFeed ? 'active' : ''")
+              .row
+                .col-sm-9.overflow-ellipsis
+                  input.form-control(type="text" value="{{feed}}" disabled="{{feedDisabled}}")
+                .col-sm-3
+                  .btn-group.btn-group-justified(role="group")
+                    .btn-group.btn-group-sm
+                      button.btn.btn-default(href="#" ng-click="removeFeed(feed)") Remove
+        
+        ng-view
+
+      
+    script(src='https://www.google.com/jsapi')
+    script.
+      google.load("feeds", "1");
+      google.load("visualization", "1", {packages:["corechart"]});
+
+    script(src='js/app.min.js')

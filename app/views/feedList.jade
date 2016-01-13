@@ -1,0 +1,26 @@
+.col-md-7.ng-cloak.feed-list(ng-if="feedData")
+  .row
+    .col-xs-12.panel
+      h4 {{feedData.title}}
+      a(ng-href="{{feedData.link}}" target="_blank") {{feedData.link}}
+      h5 Number of posts: <span class="label label-default panel__label">{{feedData.entries.length}}</span>
+      h5 
+        |Unique authors: 
+        <span ng-show="authors.length" class="label label-default panel__label" ng-repeat="author in authors">{{author}}</span>
+        <span ng-show="!authors.length" class="label label-primary panel__label">No authors specified</span>
+  .row
+    .col-xs-12.post.clearfix(ng-repeat="post in feedData.entries")
+      .thumbnail.post__thumb.pull-left(ng-if="!!post.mediaGroups[0].contents[0].url")
+        img(ng-if="post.mediaGroups[0].contents[0].url !== null" ng-src="{{post.mediaGroups[0].contents[0].url}}" alt="")
+      .caption
+        h4: a(ng-href="#/feedPost" ng-click="choosedPost($index)") {{post.title}}
+        .btn-group.btn-group-sm.pull-right
+          a(ng-href="{{post.link}}" target="_blank").btn.btn-default Source
+          a(ng-href="#/feedPost" ng-click="choosedPost($index)").btn.btn-primary Read more
+        div.clearfix
+          p 
+            strong Date
+            |&nbsp;{{post.publishedDate}}
+          p 
+            strong Author
+            |&nbsp;{{post.author}} 

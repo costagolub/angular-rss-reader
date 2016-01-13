@@ -1,0 +1,31 @@
+{
+  "name": "js_rss_reader",
+  "version": "0.0.1",
+  "authors": [
+    "Constantine Golub <constantinegolub@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "amd",
+    "es6"
+  ],
+  "keywords": [
+    "js",
+    "reader",
+    "feed",
+    "rss"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6"
+  }
+}
