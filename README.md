@@ -2,6 +2,8 @@
 
 The simple 'RSS Reader' with graphic chart inside that shows the number of latin alphabet characters on the each post. 
 This implemented by AngularJS framework and other tools that listed below.
+
+[http://costagolub.github.io/angular-rss-reader/](Live example)
 ___
 ### Here is the list of what stuff been used on the project:
 + [Bower](http://bower.io/) 
