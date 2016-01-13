@@ -4,6 +4,7 @@ The simple 'RSS Reader' with graphic chart inside that shows the number of latin
 This implemented by AngularJS framework and other tools that listed below.
 
 [Live example](http://costagolub.github.io/angular-rss-reader/)
+
 ___
 ### Here is the list of what stuff been used on the project:
 + [Bower](http://bower.io/) 
