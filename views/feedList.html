@@ -1,0 +1,28 @@
+
+<div ng-if="feedData" class="col-md-7 ng-cloak feed-list">
+  <div class="row">
+    <div class="col-xs-12 panel">
+      <h4>{{feedData.title}}</h4><a ng-href="{{feedData.link}}" target="_blank">{{feedData.link}}</a>
+      <h5>Number of posts: <span class="label label-default panel__label">{{feedData.entries.length}}</span></h5>
+      <h5>
+         
+        Unique authors: 
+        <span ng-show="authors.length" class="label label-default panel__label" ng-repeat="author in authors">{{author}}</span>
+        <span ng-show="!authors.length" class="label label-primary panel__label">No authors specified</span>
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div ng-repeat="post in feedData.entries" class="col-xs-12 post clearfix">
+      <div ng-if="!!post.mediaGroups[0].contents[0].url" class="thumbnail post__thumb pull-left"><img ng-if="post.mediaGroups[0].contents[0].url !== null" ng-src="{{post.mediaGroups[0].contents[0].url}}" alt=""/></div>
+      <div class="caption">
+        <h4><a ng-href="#/feedPost" ng-click="choosedPost($index)">{{post.title}}</a></h4>
+        <div class="btn-group btn-group-sm pull-right"><a ng-href="{{post.link}}" target="_blank" class="btn btn-default">Source</a><a ng-href="#/feedPost" ng-click="choosedPost($index)" class="btn btn-primary">Read more</a></div>
+        <div class="clearfix">
+          <p> <strong>Date</strong>&nbsp;{{post.publishedDate}}</p>
+          <p> <strong>Author</strong>&nbsp;{{post.author}} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

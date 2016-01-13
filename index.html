@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>RSS Feed Reader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <link rel="stylesheet" href="css/app.css">
+  <body ng-app="rssReaderApp" ng-controller="mainCtrl">
+    <header class="page-header text-center header">
+      <h1 class="header__name">RSS Feed Reader</h1>
+      <div ng-show="loader" class="progress loader ng-cloak">
+        <div aria-valuenow="100" style="width: 100%" class="progress-bar progress-bar-striped progress-bar-success active"></div>
+      </div>
+    </header>
+    <main class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="input-group list-group">
+            <input type="text" http-prefix="" ng-model="newFeed" placeholder="Type in the rss's url" class="form-control"><span class="input-group-btn">
+              <button type="button" ng-click="addFeed()" ng-disabled="!newFeed.length" class="btn btn-default">Add Feed!</button></span>
+          </div>
+          <div ng-show="errorName" class="alert alert-danger ng-cloak clearfix">{{errorName}}</div>
+          <div class="list-group lists ng-cloak"><a ng-href="#/feedList" ng-repeat="feed in $storage.feedList" ng-click="choosedFeed(feed)" ng-class="feed == activeFeed ? 'active' : ''" class="list-group-item lists__item">
+              <div class="row">
+                <div class="col-sm-9 overflow-ellipsis">
+                  <input type="text" value="{{feed}}" disabled="{{feedDisabled}}" class="form-control">
+                </div>
+                <div class="col-sm-3">
+                  <div role="group" class="btn-group btn-group-justified">
+                    <div class="btn-group btn-group-sm">
+                      <button href="#" ng-click="removeFeed(feed)" class="btn btn-default">Remove</button>
+                    </div>
+                  </div>
+                </div>
+              </div></a></div>
+        </div>
+        <ng-view></ng-view>
+      </div>
+    </main>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+      google.load("feeds", "1");
+      google.load("visualization", "1", {packages:["corechart"]});
+      
+    </script>
+    <script src="js/app.min.js"></script>
+  </body>
+</html>
