@@ -13,21 +13,8 @@ angular.module('rssReaderApp', [
   'ngStorage'
 ])
 
-// Route configuration
-.config(['$routeProvider', '$locationProvider',
-  function($routeProvider) {
-    $routeProvider
-      .when('/feedList', {
-        templateUrl: 'views/feedList.html'
-      })
-      .when('/feedPost', {
-        templateUrl: 'views/feedPost.html'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-}]);
-
+// Routes
+require('./routes');
 // Controllers
 require('./controllers');
 // Services
